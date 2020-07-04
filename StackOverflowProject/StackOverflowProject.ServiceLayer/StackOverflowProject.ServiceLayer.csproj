@@ -57,6 +57,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StackOverflowProject.DomainModels\StackOverflowProject.DomainModels.csproj">
+      <Project>{178fb514-5f95-42b5-b7ed-f5a9497358c2}</Project>
+      <Name>StackOverflowProject.DomainModels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
