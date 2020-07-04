@@ -20,7 +20,7 @@ namespace StackOverflowProject.Repositories
         List<Answer> GetAnswersByAnswerID(int AnswerID);
     }
 
-    public class AnswerRepository
+    public class AnswerRepository:IAnswerRepository
     {
         StackOverflowDBContext db = new StackOverflowDBContext();
         IQuestionRepository qr = new QuestionRepository();

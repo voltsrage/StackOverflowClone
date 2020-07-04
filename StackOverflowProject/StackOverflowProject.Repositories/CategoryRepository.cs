@@ -17,7 +17,7 @@ namespace StackOverflowProject.Repositories
         List<Category> GetCategoriesByCategoryID(int CategoryID);
     }
 
-    public class CategoryRepository
+    public class CategoryRepository:ICategoryRepository
     {
         StackOverflowDBContext db = new StackOverflowDBContext();
 
