@@ -4,35 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace StackOverflowProject.DomainModels
+namespace StackOverflowProject.ViewModels
 {
-    public class Question
+    public class NewQuestionViewModel
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int QuestionID { get; set; }
-
+        [Required]
         public string QuestionName { get; set; }
 
+        [Required]
         public DateTime QuestionDateAndTime { get; set; }
 
+        [Required]
         public int UserID { get; set; }
 
+        [Required]
         public int CategoryID { get; set; }
 
+        [Required]
         public int VotesCount { get; set; }
 
+        [Required]
         public int AnswersCount { get; set; }
 
+        [Required]
         public int ViewsCount { get; set; }
-
-        [ForeignKey("CategoryID")]
-        public virtual Category Category { get; set; }
-        [ForeignKey("UserID")]
-        public virtual User User { get; set; }
-
-        public virtual List<Answer> Answers { get; set; }
     }
 }

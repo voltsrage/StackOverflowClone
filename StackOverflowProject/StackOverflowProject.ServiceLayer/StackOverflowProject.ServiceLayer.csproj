@@ -66,6 +66,10 @@
       <Project>{c6bc3ec1-c573-432f-bf85-2468658f14d9}</Project>
       <Name>StackOverflowProject.Repositories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StackOverflowProject.ViewModels\StackOverflowProject.ViewModels.csproj">
+      <Project>{1325e6e0-9b73-441c-aa3a-78752bb2d923}</Project>
+      <Name>StackOverflowProject.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

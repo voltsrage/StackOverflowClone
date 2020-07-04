@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace StackOverflowProject.DomainModels
+namespace StackOverflowProject.ViewModels
 {
-    public class Answer
+    public class AnswerViewModel
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AnswerID { get; set; }
 
         public string AnswerText { get; set; }
@@ -24,11 +21,9 @@ namespace StackOverflowProject.DomainModels
 
         public int VotesCount { get; set; }
 
-        [ForeignKey("QuestionID ")]
-        public virtual Question Question { get; set; }
-        [ForeignKey("UserID")]
-        public virtual User User { get; set; }
-
-        public virtual List<Vote> Votes { get; set; }
+        public virtual UserViewModel User { get; set; }
+        public virtual List<VoteViewModel> Votes { get; set; }
+        public int CurrentUserVoteType { get; set; }
     }
+
 }
