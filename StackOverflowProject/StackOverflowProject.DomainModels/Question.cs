@@ -18,9 +18,9 @@ namespace StackOverflowProject.DomainModels
 
         public DateTime QuestionDateAndTime { get; set; }
 
-        public int UserID { get; set; }
+        public int? UserID { get; set; }
 
-        public int CategoryID { get; set; }
+        public int? CategoryID { get; set; }
 
         public int VotesCount { get; set; }
 
@@ -28,10 +28,11 @@ namespace StackOverflowProject.DomainModels
 
         public int ViewsCount { get; set; }
 
-        [ForeignKey("CategoryID")]
-        public virtual Category Category { get; set; }
         [ForeignKey("UserID")]
         public virtual User User { get; set; }
+        [ForeignKey("CategoryID")]
+        public virtual Category Category { get; set; }
+        
 
         public virtual List<Answer> Answers { get; set; }
     }

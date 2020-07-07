@@ -1,0 +1,34 @@
+﻿
+<tr>
+    <td style="text-align:center;padding:0.5px">
+        <span style="font-size:25px">@Model.VotesCount</span>
+        <br /><small>votes</small>
+    </td>
+    <td style="background-color:limegreen;text-align:center;padding:0.2px">
+        <span style="font-size:25px">@Model.AnswersCount</span>
+        <br /><small style="text-align:center">Answers</small>
+    </td>
+    <td style="text-align:center;padding:0.5px">
+        <span style="font-size:25px">@Model.ViewsCount</span>
+        <br /><small>Views</small>
+    </td>
+
+    <td class="text-dark">
+        <a href="/questions/views/@Model.QuestionID" class="text-primary">Q: @Model.QuestionName</a>
+        <br />
+        <span class="badge badge-info">@Model.Category.CategoryName</span>
+    </td>
+    <td>
+        asked @Model.QuestionDateAndTime.ToShortDateString()
+    </td>
+    <td>
+        @if (Convert.ToInt32(Session["CurrentUserID"]) != Model.UserID)
+        {
+            @:by @Model.User.Name
+        }
+        else
+        {
+            @:by you
+        }
+    </td>
+</tr>

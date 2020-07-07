@@ -38,14 +38,14 @@ namespace StackOverflowProject.Repositories
 
         public List<Question> GetQuestions()
         {
-            List<Question> Questions = db.Questions.OrderBy(c => c.QuestionName).ToList();
+            List<Question> Questions = db.Questions.OrderByDescending(q =>q.QuestionDateAndTime).ToList();
             return Questions;
         }
 
         public List<Question> GetQuestionsByQuestionID(int QuestionID)
         {
-            List<Question> Questions = db.Questions.Where(q => q.QuestionID == QuestionID).ToList();
-            return Questions;
+            List<Question> qt = db.Questions.Where(q => q.QuestionID == QuestionID).ToList();
+            return qt;
         }
 
         public void InsertQuestion(Question q)

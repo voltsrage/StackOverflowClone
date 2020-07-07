@@ -9,6 +9,8 @@ namespace StackOverflowProject.ViewModels
 {
     public class EditUserDetailsViewModel
     {
+        public int UserID { get; set; }
+
         [Required]
         [EmailAddress]
         public string Email { get; set; }

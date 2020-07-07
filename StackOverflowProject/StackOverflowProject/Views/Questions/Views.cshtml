@@ -1,0 +1,71 @@
+﻿@model StackOverflowProject.ViewModels.QuestionViewModel
+@{
+    ViewBag.Title = "View Question";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group form-row">
+            <div class="col-sm-10 offset-2">
+                <h3>@Model.QuestionName</h3>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <span class="badge badge-info">@Model.Category.CategoryName</span>
+                    </div>
+                    <div class="col-sm-2">
+                        <span class="text-info">
+                            @if (Convert.ToInt32(Session["CurrentUserID"]) != Model.UserID)
+                            {
+                                @:by @Model.User.Name
+                            }
+                            else
+                            {
+                                @:by you
+                            }
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span class="text-success">
+                            by @Model.QuestionDateAndTime
+                        </span>
+                    </div>
+                    <div class="col-sm-2">
+                        <span class="badge badge-pill badge-success col-2">
+                            @Model.ViewsCount
+                        </span>
+                        Views
+                    </div>
+                </div>
+
+                @if(Model.AnswersCount == 0)
+                {
+                    <p class="text-danger">No answers yet!</p>
+                }
+
+            </div>
+        </div>
+
+        @for(int i = 0; i < Model.AnswersCount;i++)
+        {
+            <div class="form-group form-row">
+                <div class="col-sm-2">
+                    <span class="badge badge-secondary col-2 votescount">
+                        @Model.Answers[i].VotesCount
+                    </span>
+                    Votes
+
+                    @if (Session["CurrentUserName"] != null && Convert.ToInt32(Session["CurrentUserID"]) != Model.Answers[i].UserID)
+                    {
+                        if (Model.Answers[i].CurrentUserVoteType == 1)
+                        {
+                            <img src="~/Images/up-color.png" class="btnUpVote" style="cursor:pointer" width="24px" data-answerid="@Model.Answers[i].AnswerID" />
+                            <img src="~/Images/down-color.png" class="btnDownVote" style="cursor:pointer" width="24px" data-answerid="@Model.Answers[i].AnswerID" />
+                        }
+                    }
+                </div>
+            </div> 
+        }
+
+    </div>
+</div>
+

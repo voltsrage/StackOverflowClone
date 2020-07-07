@@ -7,6 +7,7 @@ using StackOverflowProject.DomainModels;
 using StackOverflowProject.Repositories;
 using StackOverflowProject.ViewModels;
 using AutoMapper;
+using AutoMapper.Configuration;
 
 
 namespace StackOverflowProject.ServiceLayer
@@ -39,6 +40,7 @@ namespace StackOverflowProject.ServiceLayer
         {
             var config = new MapperConfiguration(cfg => { cfg.CreateMap<NewQuestionViewModel, Question>(); cfg.IgnoreUnmapped();
                 cfg.CreateMap<Category, CategoryViewModel>(); cfg.IgnoreUnmapped();
+                cfg.CreateMap<User, UserViewModel>(); cfg.IgnoreUnmapped();
             });
 
             IMapper mapper = config.CreateMapper();
@@ -52,6 +54,7 @@ namespace StackOverflowProject.ServiceLayer
         {
             var config = new MapperConfiguration(cfg => { cfg.CreateMap<EditQuestionsViewModel, Question>(); cfg.IgnoreUnmapped();
                 cfg.CreateMap<Category, CategoryViewModel>(); cfg.IgnoreUnmapped();
+                cfg.CreateMap<User, UserViewModel>(); cfg.IgnoreUnmapped();
             });
 
             IMapper mapper = config.CreateMapper();
@@ -89,6 +92,7 @@ namespace StackOverflowProject.ServiceLayer
 
             var config = new MapperConfiguration(cfg => { cfg.CreateMap<Question, QuestionViewModel>(); cfg.IgnoreUnmapped();
                 cfg.CreateMap<Category, CategoryViewModel>(); cfg.IgnoreUnmapped();
+                cfg.CreateMap<User, UserViewModel>(); cfg.IgnoreUnmapped();
             });
 
             IMapper mapper = config.CreateMapper();
@@ -107,6 +111,7 @@ namespace StackOverflowProject.ServiceLayer
             {
                 var config = new MapperConfiguration(cfg => { cfg.CreateMap<Question, QuestionViewModel>(); cfg.IgnoreUnmapped();
                     cfg.CreateMap<Category, CategoryViewModel>(); cfg.IgnoreUnmapped();
+                    cfg.CreateMap<User, UserViewModel>(); cfg.IgnoreUnmapped();
                 });
 
                 IMapper mapper = config.CreateMapper();
